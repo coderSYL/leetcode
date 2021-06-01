@@ -28,7 +28,7 @@ public:
 
 
     int visit(TreeNode* root){
-        if(root == NULL){
+        if(root == nullptr){
             return 0;
         }
         int le = INT_MIN, ri = INT_MIN;

@@ -2,6 +2,11 @@
  * C++
  * leetcode2
  * url: https://leetcode-cn.com/problems/add-two-numbers/
+ * 判断是否有0，有0则返回另一个链表头指针
+ * 找到两个链表长度，讲短的用前置0补长
+ * 分别相加，如果进位，则将信息存到一个bool flag里，下一次相加多+1
+ * 处理到链表尾部时，若flag == true，再弄个val=1的结点接上
+ * 尾部next置为nullptr
  */
 
 /**
