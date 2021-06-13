@@ -2,7 +2,7 @@
  * C++
  * leetcode 1074
  * url: https://leetcode-cn.com/problems/number-of-submatrices-that-sum-to-target/
- * 前缀和 + 拆分 ，然后暴力求解
+ * 前缀和 + 差分 ，然后暴力求解
  * 前缀和，用一个行列大1的表来存原表的sum，[i,j]对应的是原表从[0,0]到[i,j]的和
  * 拆分，就是用sum表的4个数字来计算一个和
  */

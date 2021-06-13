@@ -1,5 +1,4 @@
-/*
- * C++
- * leetcode 
- * url: 
- */
+// C++
+// leetcode 
+// url: 
+// idea:
