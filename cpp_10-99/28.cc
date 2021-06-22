@@ -1,8 +1,10 @@
-// c with stl(c++)
-// 28
+// C++
+// leetcode 28
 // https://leetcode-cn.com/problems/implement-strstr/
-// 
-
+// 思路:
+// 先对needle预处理，找到与首字母相同的字母的index，若没有则设为needle的长度
+// 然后循环haystack的各个字母进行比对
+// 如果一次不对，则通过对needle的预处理来跳过一些情况使得能够加速处理
 
 class Solution {
 public:
@@ -18,19 +20,20 @@ public:
                 break;
             nexthead++;
         }
-        // cout<<nexthead<<endl;
-        if( size2>size1)
+        if(size2>size1)
             return -1;
 
-        for(int i= 0; i<= size1 -size2; i++){
-            // cout<<i<<endl;
-            if(haystack[i] == needle[0]){
+        for(int i= 0; i<= size1 -size2; i++)
+        {
+            if(haystack[i] == needle[0])
+            {
+                // check if it's same
                 int temp = i, j =0;
                 while((j<size2)&&(haystack[temp] ==needle[j])){
                     temp++;
                     j++;
                 }
-                
+                // same
                 if(j==size2)
                     return i;
                 if(nexthead<j){
@@ -41,6 +44,6 @@ public:
 
             }
         }
-        return -1;
+        return -1;  // not found
     }
 };

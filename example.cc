@@ -1,4 +1,4 @@
 // C++
 // leetcode 
 // url: 
-// idea:
+// 思路:

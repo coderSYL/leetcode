@@ -1,8 +1,9 @@
-// c with stl(c++)
-// 22
-// https://leetcode-cn.com/problems/generate-parentheses/
-// 
-
+// C++
+// leetcode 22
+// url: https://leetcode-cn.com/problems/generate-parentheses/
+// 思路:
+// 动态规划
+// 求n需要用到f(0)到f(n-1)
 
 class Solution {
 public:
