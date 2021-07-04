@@ -7,6 +7,7 @@ Till now, I use : C++
 * folder started with cpp means, in this folder, the answer are written in cpp
 * folder ended with number means, the range of the exercises.
 * folder ended with "offer" means the series 《剑指offer》.
+* folder **week competiton** is to record my answer to the exercises in leetcode competition
 
 
 ----------------------------------------------------------------------------
@@ -21,3 +22,4 @@ C++
 * cpp开头的表示使用语言是cpp
 * 结尾两个数字表示题号范围
 * offer表示剑指offer系列
+* 文件夹 **week competiton** 用来记录我参加 leetcode 周赛写的题解
