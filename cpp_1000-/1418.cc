@@ -7,7 +7,7 @@
 class Solution {
 public:
     vector<vector<string>> displayTable(vector<vector<string>>& orders) {
-    	map<int, map<string,int> >	getOrderForTable;
+    	map<int, unordered_map<string,int> >	getOrderForTable;
     	set<string>  all;
     	for(auto &oneOrder : orders) {
     		int tableNum = stoi(oneOrder[1]);
@@ -16,23 +16,30 @@ public:
     		getOrderForTable[ tableNum ][ item ]++;
     	}
 
+
     	// 开始制表
-    	vector<vector<string>> res;
-    	// 第一行
-    	vector<string> lineOne{"Table"};
-    	for(auto it = all.begin(); it != all.end(); ++it) {
-    		lineOne.push_back( *it );
-    	}
-    	res.push_back(lineOne);
     	int dishKind = all.size();
+    	vector<vector<string>> res(getOrderForTable.size() + 1, vector<string>(dishKind+1, "0"));
+
+        
+    	// 第一行
+    	res[0][0] = "Table";
+    	int i = 1;
+    	for(auto it = all.begin(); it != all.end(); ++it)
+    		res[0][i++] = *it;
+
+    	
     	// 其它行
+    	int lineNum = 1;
     	for(auto it = getOrderForTable.begin(); it != getOrderForTable.end(); ++it) {
     		auto &m = it->second;
-    		vector<string> aline{ to_string(it->first) };
-    		for(int i = 1; i <= dishKind; ++i) {
-    			aline.push_back( to_string(m[lineOne[i]]) );
+    		res[lineNum][0] = to_string(it->first);
+    		for(i = 1; i <= dishKind; ++i) {
+    			if(m[res[0][i]] == 0)
+    				continue;
+    			res[lineNum][i] = to_string(m[res[0][i]]);
     		}
-    		res.push_back(aline);
+    		++lineNum;
     	}
     	return res;
     }
