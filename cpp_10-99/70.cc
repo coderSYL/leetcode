@@ -1,9 +1,7 @@
-/*
- * C++
- * leetcode 70
- * url: https://leetcode-cn.com/problems/climbing-stairs/
- * 经典dp
- */
+// C++
+// leetcode 70
+// https://leetcode-cn.com/problems/climbing-stairs/
+// 经典dp
 
 class Solution {
 public:
@@ -11,11 +9,8 @@ public:
     	int dp[n+1];
     	dp[0] = 1;
     	dp[1] = 1;
-    	int i =2;
-    	while(i<=n){
+    	for(int i = 2; i <= n; ++i)
     		dp[i] = dp[i-1] +dp[i-2];
-            i++;
-    	}
     	return dp[n];
     }
 };
