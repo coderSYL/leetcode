@@ -10,7 +10,7 @@ Till now, I use : C++
 * folder **week competiton** is to record my answer to the exercises in leetcode competition
 
 
-----------------------------------------------------------------------------
+---------------------------------------------------
 
 
 本项目用于记刷leetcode的记录
@@ -23,3 +23,11 @@ C++
 * 结尾两个数字表示题号范围
 * offer表示剑指offer系列
 * 文件夹 **week competiton** 用来记录我参加 leetcode 周赛写的题解
+
+
+---------------------------------------------------
+
+现在在跟随三叶整理出来的列表刷题
+[链接](https://github.com/SharingSource/LogicStack-LeetCode/wiki/模拟)
+
+下次做59
