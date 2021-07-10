@@ -11,7 +11,7 @@ Till now, I use : C++
 
 
 ---------------------------------------------------
-
+REA
 
 本项目用于记刷leetcode的记录
 
@@ -30,4 +30,4 @@ C++
 现在在跟随三叶整理出来的列表刷题
 [链接](https://github.com/SharingSource/LogicStack-LeetCode/wiki/模拟)
 
-下次做59
+下次做 1047
