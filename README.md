@@ -8,6 +8,7 @@ Till now, I use : C++
 * folder ended with number means, the range of the exercises.
 * folder ended with "offer" means the series 《剑指offer》.
 * folder **week competiton** is to record my answer to the exercises in leetcode competition
+* folder interview includes the exercises with tag "面试"
 
 
 ---------------------------------------------------
@@ -23,6 +24,7 @@ C++
 * 结尾两个数字表示题号范围
 * offer表示剑指offer系列
 * 文件夹 **week competiton** 用来记录我参加 leetcode 周赛写的题解
+* 文件夹 **interview** 用来记录带 **面试** 标签的题目
 
 
 ---------------------------------------------------
