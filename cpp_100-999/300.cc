@@ -1,12 +1,10 @@
-/*
- * C++
- * leetcode 300
- * url: https://leetcode-cn.com/problems/longest-increasing-subsequence/
- * dp[i]用来存储以nums[i]为结尾的最长子序列的大小
- * 遍历求一遍dp[0] ~ dp[size-1]
- * max(dp[0], ... , dp[size-1])就是答案
- */
-
+// C++
+// leetcode 300
+// https://leetcode-cn.com/problems/longest-increasing-subsequence/
+// dp[i]用来存储以nums[i]为结尾的最长子序列的大小
+// 遍历求一遍dp[0] ~ dp[size-1]
+// max(dp[0], ... , dp[size-1])就是答案
+ 
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
