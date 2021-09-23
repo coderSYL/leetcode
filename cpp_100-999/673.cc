@@ -1,12 +1,11 @@
-/*
- * C++
- * leetcode 673
- * url: https://leetcode-cn.com/problems/number-of-longest-increasing-subsequence/
- * 300的加强版，统计最长增序列的个数
- * 延续300的思路，用dp[i]记录以i号位为结尾的最长序列长度
- * 新增n[i]数组记录符合dp[i]的序列的个数
- * 遍历nums[i]，如果刷新了dp[i]，则重置ret_num 为n[i]，如果与之前的最大dp相等，则 ret_num += n[i]
- */
+// C++
+// leetcode 673
+// https://leetcode-cn.com/problems/number-of-longest-increasing-subsequence/
+// 300的加强版，统计最长增序列的个数
+// 延续300的思路，用dp[i]记录以i号位为结尾的最长序列长度
+// 新增n[i]数组记录符合dp[i]的序列的个数
+// 遍历nums[i]，如果刷新了dp[i]，则重置ret_num 为n[i]，如果与之前的最大dp相等，则 ret_num += n[i]
+
 
 class Solution {
 public:

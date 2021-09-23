@@ -19,11 +19,11 @@ public:
     	int temp = 0;	// good value : [0, 8]
     	int heng = 3;	// good value : 0, 1, 2
     	int shu = 3;	// good value : 0, 1, 2
-    	for(int i = 0; i < 9; i++)	// 开始
+    	for(int i = 0; i < 9; i++)	// 开始，每轮处理一行
     	{
     		memset(oneLineCheck, 0, sizeof(oneLineCheck));
     		vector<char> &a = board[i];
-    		for(int j = 0; j < 9; j++)
+    		for(int j = 0; j < 9; j++)    // 内循环，每轮处理一行中的一个
     		{
     			temp = (int)a[j] - 49;
     			heng = i / 3;
