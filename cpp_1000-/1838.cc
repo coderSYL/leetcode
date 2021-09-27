@@ -12,16 +12,17 @@ public:
     	if(n < 2)
     		return	n;
     	sort(nums.begin(), nums.end());
-    	int mmax = 0;
+    	int res = 0;
     	LL tempSum = 0;
     	for(int i = 0, j = 0; j < n; ++j) {
     		while((long)(nums[j]) * (j - i) - tempSum > k) {
+    			// 以num[j]为基准来算频数，超过k操作数就移动左边界
     			tempSum -= nums[i];
     			++i;
     		}
     		tempSum += nums[j];
-    		mmax = max(mmax, j - i + 1);
+    		res = max(res, j - i + 1);
     	}
-    	return	mmax;
+    	return	res;
     }
 };

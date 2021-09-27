@@ -2,7 +2,7 @@
 // leetcode 300
 // https://leetcode-cn.com/problems/longest-increasing-subsequence/
 // dp[i]用来存储以nums[i]为结尾的最长子序列的大小，遍历一遍求得
-// g[i] 用来存储长度为i的递增子序列的最小的结尾，
+// g[i] 用来存储长度为i的递增子序列的最小的结尾
  
 class Solution {
 public:
