@@ -1,8 +1,7 @@
-// c with stl(c++)
-// 208
+// C++
+// leetcode 208
 // https://leetcode-cn.com/problems/implement-trie-prefix-tree/
-// 
-
+// 字典树
 
 class Trie {
 private:
