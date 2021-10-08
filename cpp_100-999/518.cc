@@ -1,9 +1,7 @@
-/*
- * C++
- * leetcode 518
- * url: https://leetcode-cn.com/problems/coin-change-2/
- * 以[0, amount]搞dp
- */
+// C++
+// leetcode 518
+// https://leetcode-cn.com/problems/coin-change-2/
+// 经典dp
 
 class Solution {
 public:
@@ -11,10 +9,9 @@ public:
         int dp[amount+1];
         memset(dp, 0, sizeof(dp));
         dp[0] = 1;
-        int i = 0;
-        for(int coin:coins){
-            for(int i =coin; i<=amount; i++){
-                dp[i] += dp[i - coin];
+        for(int coin_val : coins){
+            for(int i = coin_val; i <= amount; i++){
+                dp[i] += dp[i - coin_val];
             }
         }
         return dp[amount];
