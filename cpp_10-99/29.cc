@@ -7,11 +7,11 @@
 class Solution {
 public:
     int divide(int dividend, int divisor) {
-        long l_above = (long)dividend;
+        long l_above = (long) dividend;
         long l_belowed = (long) divisor;
-        long long_ret = l_above/l_belowed;
+        long long_ret = l_above / l_belowed;
 
-        if(long_ret<INT_MAX)
+        if(long_ret < INT_MAX)
             return (int)long_ret;
         return INT_MAX;
     }
