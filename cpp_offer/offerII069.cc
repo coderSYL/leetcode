@@ -1,6 +1,6 @@
 // C++
-// leetcode 854
-// https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/
+// leetcode offer II 069 同本站854
+// https://leetcode-cn.com/problems/B1IidL/
 // 思路:
 // 方法1: 一个个搞（可能因为本题数据量小，所以这个方法快点）
 // 方法2: 二分
@@ -21,18 +21,18 @@
 class Solution {
 public:
     int peakIndexInMountainArray(vector<int>& arr) {
-        int size = arr.size();
+        int size =arr.size();
         int i = 0;
-        int j = size - 1;
+        int j = size-1;
         int mid;
-        while(i <= j){
-            mid = i + (j-i) / 2;
-            if(arr[mid-1] > arr[mid])
+        while(i<=j){
+            mid = i + (j-i)/2;
+            if(arr[mid-1]>arr[mid])
             {
                 j = mid;
                 continue;
             }
-            else if(arr[mid+1] > arr[mid])
+            else if(arr[mid+1]>arr[mid])
             {
                 i = mid;
                 continue;

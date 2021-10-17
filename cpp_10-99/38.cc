@@ -17,7 +17,9 @@ public:
     	int next = 0;
     	int temp = 0;
     	int temp_num = 0;
-    	while(n > 1)	// one loop: get s2 according s1
+
+
+    	while(n > 1)	// 每个循环：根据已有string得到下一个string
     	{
     		len = s.size();
     		int num[len];
@@ -27,9 +29,9 @@ public:
     		temp_num = 0;
     		for(auto c : s)
     		{
-    			if(char2int(c) == temp)	temp_num++;
-    			else
-    			{
+    			if(char2int(c) == temp)
+                    temp_num++;
+    			else {
     				num[next] = temp;
     				count[next] = temp_num;
     				next++;
@@ -41,9 +43,12 @@ public:
 			count[next] = temp_num;
 			next++;
 			s = "";
-			for(int j = 0; j < next; j++)	s += to_string(count[j]) + int2string(num[j]);
+			for(int j = 0; j < next; j++)
+                s += to_string(count[j]) + int2string(num[j]);
 			n--;
     	}
+
+
     	return s;
     }
 };
