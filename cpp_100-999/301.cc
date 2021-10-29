@@ -23,6 +23,7 @@ public:
     	}
     	max_ = min(l_num, r_num);
 
+    	// 回溯dfs
     	set<string>	set_res;
     	dfs(s, 0, set_res);
 
