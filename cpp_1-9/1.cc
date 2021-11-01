@@ -1,50 +1,47 @@
-/*
- * C++
- * leetcode 1
- * url: https://leetcode-cn.com/problems/two-sum/
- * 复制一个nums的copy记为copy_nums
- * 对nums进行排序
- * 用双指针法找到符合的两个数，记为i,j
- * 回到copy_nums中找到i,j的index
- * 为避免i=j的情况，找i时从前往后找，找j时从后往前找
- */
+// C++
+// leetcode 1
+// https://leetcode-cn.com/problems/two-sum/
+// 检查最特殊的情况，两个n0 = n1，且n0 + n1 = target，若非此情况，则：
+// 用hash录入nums中的值与index
+// 对nums进行排序
+// 用双指针法找到符合的两个数a，b
+// 用hash找到a，b的角标
+
 
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> copy_nums (nums);
-        int i =0, j = nums.size()-1, size = nums.size();
-        sort(nums.begin(), nums.end());
-        vector<int> ret;
+        vector<int> res;
+        int n = nums.size();
+        if(target % 2 == 0) {
+            int tt = target / 2;
+            for(int i = 0; i < n; i++) {
+                if(nums[i] == tt)
+                    res.push_back(i);
+            }
+            if(res.size() == 2)
+                return  res;
+            else
+                res.clear();
+        }
 
-        // try to find two numbers
-        while(true){
+        unordered_map<int, int> m; // < val, index >
+        for(int i = 0; i < n; i++) {
+            m[nums[i]] = i;
+        }
+        sort(nums.begin(), nums.end());
+        int i = 0, j = n - 1;
+        while(true) {
             if(nums[i] +nums[j] > target){
                 j--;
             }else if(nums[i] +nums[j] < target){
                 i++;
             }else{
-                i = nums[i];
-                j = nums[j];
+                res.push_back(m[nums[i]]);
+                res.push_back(m[nums[j]]);
                 break;
             }
         }
-        // try to find index of 2 numbers
-        for(int k =0; k<size; k++){
-            if(copy_nums[k] == i){
-                i = k;
-                break;
-            }
-        }
-        for(int k =size-1; k>=0; k--){
-            if(copy_nums[k] == j){
-                j = k;
-                break;
-            }
-        }
-        ret.push_back(i);
-        ret.push_back(j);
-
-        return ret;
+        return  res;
     }
 };
