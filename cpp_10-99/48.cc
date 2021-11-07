@@ -1,8 +1,6 @@
-/*
- * C++
- * leetcode48
- * url: https://leetcode-cn.com/problems/rotate-image/
- */
+// C++
+// leetcode 48
+// https://leetcode-cn.com/problems/rotate-image/
 
 class Solution {
 public:
