@@ -6,11 +6,11 @@ class Solution {
 public:
 	int MOD = (int)1e9 + 7;
     int kInversePairs(int n, int k) {
-    	int f[k + 1];	// f[i]代表当前的i个逆序对有多少个
+        // f[i]代表当前的i个逆序对有多少个
+    	int f[k + 1];
     	memset(f, 0, sizeof(f));
-
-    	// 设初始值，针对n = 1时候
     	f[0] = 1;
+        // 开始滚动
     	for(int i = 2; i <= n; i++) {
     		// 有i种选择，所以f_new[i] = sum(f[j])  j范围 (j - i, j]
     		int sum = 0;
@@ -20,7 +20,7 @@ public:
     			sum += f[j];
     			sum %= MOD;
     		}
-
+            // 从后往前填充f[j]
     		for(int j = k; j > 0; j--) {
     			int tmp = f[j];
     			f[j] = sum;
