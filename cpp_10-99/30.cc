@@ -8,24 +8,22 @@ public:
     vector<int> findSubstring(string s, vector<string>& words) {
         vector<int> res;
         int wordsNum = words.size();
-        int s_length = s.size();
-        if(s_length == 0 || wordsNum == 0)
+        if(s.size() == 0 || wordsNum == 0)
             return  res;
         int wordSize = words[0].size();
 
-
+        // 预处理
         map<string, int>    noSame;
-        for(auto word : words) {
+        for(auto word : words)
             noSame[word]++;
-        }
 
-        for(int i = 0; i < wordSize && i < s_length; i++) {
+        for(int i = 0; i < wordSize && i < s.size(); i++) {
             int left = i;
             int right = i;
             int cnt = 0;
             map<string, int>    cur;
 
-            while(right + wordSize <= s_length) {
+            while(right + wordSize <= s.size()) {
                 string curWord = s.substr(right, wordSize);
                 right += wordSize;
 
@@ -48,7 +46,7 @@ public:
                     left = right;
                     cnt = 0;
                     cur.clear();
-                    if(left + wordsNum * wordSize > s_length)
+                    if(left + wordsNum * wordSize > s.size())
                         continue;
                 }
             }

@@ -3,73 +3,46 @@
 // https://leetcode-cn.com/problems/permutations-ii/
 // 效率不高
 
-
 class Solution {
 public:
-	vector<int>	cnt;
-	int kind;
-	vector<int>	used;
-	vector<int>	cur;
-	vector<vector<int>>	res;
-	int n;
+    vector<vector<int>> res;
+    vector<int> cur;
+    int idx = 0;
+    int full;
 
-	void dfs(vector<int>& nums, int lastProcessed, int start) {
-		if(cur.size() == n) {
-			res.push_back(cur);
-			return;
-		}
-
-		int idx_local = start;
-		for( ; idx_local < kind; idx_local++) {
-			if(cnt[idx_local] > used[idx_local] && idx_local != lastProcessed)
-				break;
-		}
-		
-		if(idx_local == kind)
-			return;
-
-		int val = nums[idx_local];
-
-		while(cnt[idx_local] > used[idx_local]) {
-			// 每loop填装一个
-			used[idx_local]++;
-			cur.push_back(val);
-			dfs(nums, idx_local, 0);
-		}
-
-		// 回溯
-		while(!cur.empty() && cur.back() == val) {
-			cur.pop_back();
-			used[idx_local]--;
-		}
-		dfs(nums, lastProcessed, idx_local + 1);
-	}
-
+    void dfs(vector<int>& nums, int lastProcessed, int info) {
+        if(idx == nums.size()) {
+            res.push_back(cur);
+            return;
+        }
+        // possible 为 1 的位表示本次dfs可以选
+        int possible = full & (~info);
+        for(int i = 0; i < nums.size(); i++) {
+            if((possible & (1 << i))== 0)   continue;
+            int u = nums[i];
+            int n = 1;
+            int j = i;
+            while(++j < nums.size() && nums[j] == u)
+                n++;
+            // 不等于上一个，则本轮可使用
+            if(u != lastProcessed) {
+                int nextInfo = info;
+                for(int m = 0; m < n; m++) {
+                    cur[idx++] = u;
+                    nextInfo |= (1 << (i + m));
+                    dfs(nums, u, nextInfo);
+                }
+                idx -= n;
+            }
+            i += n - 1;
+        }
+    }
 
     vector<vector<int>> permuteUnique(vector<int>& nums) {
-    	// 预处理
-    	n = nums.size();
-    	sort(nums.begin(), nums.end());
-    	int cur_cnt = 0;
-    	int cur_val = nums[0];
-    	kind = 0;
-    	for(auto x : nums) {
-    		if(x == cur_val) {
-    			cur_cnt++;
-    		} else {
-    			cnt.push_back(cur_cnt);
-    			cur_cnt = 1;
-    			nums[kind] = cur_val;
-    			kind++;
-    			cur_val = x;
-    		}
-    	}
-
-    	cnt.push_back(cur_cnt);
-    	nums[kind] = cur_val;
-    	kind++;
-    	used.resize(kind, 0);
-    	dfs(nums, kind, 0);
-    	return	res;
+        full = (1 << nums.size()) - 1;
+        cur.resize(nums.size());
+        sort(nums.begin(), nums.end());
+        dfs(nums, INT_MAX, 0);
+        return  res;
     }
 };

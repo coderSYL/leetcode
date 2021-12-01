@@ -3,7 +3,6 @@
 // https://leetcode-cn.com/problems/same-tree/comments/
 // 简简单单一个递归
 
-
 /**
  * Definition for a binary tree node.
  * struct TreeNode {

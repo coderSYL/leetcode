@@ -1,8 +1,6 @@
 // C++
 // leetcode 69
 // https://leetcode-cn.com/problems/sqrtx/
-// 
-
 
 class Solution {
 public:

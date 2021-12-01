@@ -3,73 +3,55 @@
 // https://leetcode-cn.com/problems/combination-sum-ii/
 // dfs回溯
 
-
 class Solution {
 public:
-	vector<vector<int>>	res;
-	vector<int>	v;
-	int t_;	// target
-	int n = 0;	// 记录种类个数
+    vector<vector<int>> res;
+    vector<int> cur;
+    vector<int>   cnt;
+    int size = 0;
 
-	void dfs(vector<int>& cs, vector<int>& nums, int cur, int sum) {
-		// 合格
-		if(sum == t_) {
-			res.push_back(v);
-			return;
-		}
-		// 录完了还不合格
-        if(cur == n)
+    void dfs(vector<int>& cs, int done, int left) {
+    	// 合格
+        if(left == 0) {
+            res.push_back(cur);
             return;
-
-		int val = cs[cur];
-		int num = nums[cur];
-
-		dfs(cs, nums, cur + 1, sum);
-		int done = 0;
-		while(done < num) {
-			if(sum + val > t_)
-				break;
-			sum += val;
-			v.push_back(val);
-			dfs(cs, nums, cur + 1, sum);
-			done++;
-		}
-
-		// 回溯
-        sum -= val * done;
-		while(done > 0) {
-			v.pop_back();
-			done--;
-		}
-	}
+        }
+        // 试完了还没合格
+        if(done == size) return;
+        // 本次 dfs 使用的数字以及它的数量
+        int u = cs[done];
+        int n = min(cnt[done], left / u);
+        // 一个都塞不进了（因cs是升序排列，故之后的肯定也塞不进
+        if(n == 0)  return;
+        // 塞 n 个进去
+        cur.insert(cur.end(), n, u);
+        left -= n * u;
+        // dfs，然后每排出一个再dfs一次
+        dfs(cs, done + 1, left);
+        while(n--) {
+            left += u;
+            cur.pop_back();
+            dfs(cs, done + 1, left);
+        }
+    }
 
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
-    	t_ = target;
-
-    	// 预处理candidates
-    	// 去重（并没删除空间，而是覆盖，多余的空间留在结尾作废）
-    	// 将个数录入cnt中
-    	sort(candidates.begin(), candidates.end());
-    	vector<int>	cnt;
-    	int pre = candidates[0];
-    	int curCnt = 1;
-    	for(int i = 1; i < candidates.size(); i++) {
-    		if(candidates[i] == pre)
-    			curCnt++;
-    		else {
-    			candidates[n++] = pre;
-    			cnt.push_back(curCnt);
-    			curCnt = 1;
-    			pre = candidates[i];
-    		}
-    	}
-		candidates[n++] = pre;
-    	cnt.push_back(curCnt);
-        
-    	// dfs回溯
-    	dfs(candidates, cnt, 0, 0);
-
-    	return	res;
-
+        sort(candidates.begin(), candidates.end());
+        // 预处理，计数
+        int now = candidates[0], cc = 1;
+        for(int i = 1; i < candidates.size(); i++) {
+            if(candidates[i] == now) {
+                cc++;
+            } else {
+                candidates[size++] = now;
+                cnt.push_back(cc);
+                now = candidates[i];
+                cc = 1;
+            }
+        }
+        candidates[size++] = now;
+        cnt.push_back(cc);
+        dfs(candidates, 0, target);
+        return  res;
     }
 };

@@ -5,25 +5,47 @@
 
 class Solution {
 public:
-    string minWindow(string s, string t) {
-        unordered_map<char, int>  record; // 记录t中各字母的数目
-        unordered_map<char, int>  work; // 工作map
-        for(auto c : t) record[c]++;
-        int t_size = t.size();
-        int s_size = s.size();
-        string  res;
-        int cnt = 0;
+    void plus(int* a, char c) {
+        if(c < 'a')
+            a[c - 'A']++;
+        else
+            a[c - 'a' + 26]++;
+    }
 
-        for(int i = 0, j = 0; j < s_size; j++) {
-            char loop_c  = s[j];
-            work[loop_c]++;
-            if(work[loop_c] <= record[loop_c])
-                cnt++;
-            while(i <= j && work[s[i]] > record[s[i]]) {
-                work[s[i]]--;
+    void minus(int* a, char c) {
+        if(c < 'a')
+            a[c - 'A']--;
+        else
+            a[c - 'a' + 26]--;
+    }
+
+    int get(int * a, char c) {
+        if(c < 'a')
+            return a[c - 'A'];
+        else
+            return a[c - 'a' + 26];
+        return -1; // error
+    }
+
+    string minWindow(string s, string t) {
+        int cnt[52] = {0};
+        int cur[52] = {0};
+        for(auto c : t)
+            plus(cnt, c);
+
+        string  res;
+        int good = 0;
+
+        for(int i = 0, j = 0; j < s.size(); j++) {
+            char c = s[j];
+            plus(cur, c);
+            if(get(cur, c) <= get(cnt, c))
+                good++;
+            while(i <= j && get(cur, s[i]) > get(cnt, s[i])) {
+                minus(cur, s[i]);
                 i++;
             }
-            if(cnt == t_size && (res.empty() || res.size() > j - i + 1))
+            if(good == t.size() && (res.empty() || res.size() > j - i + 1))
                 res = s.substr(i, j - i + 1);
         }
         return  res;
