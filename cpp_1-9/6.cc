@@ -1,11 +1,10 @@
-/*
- * C++
- * leetcode 6
- * url: https://leetcode-cn.com/problems/zigzag-conversion/
- * 特殊情况，numRows =1， 直接返回s
- * 用numRows 个string来存分类的情况
- * 再那些string来还原出返回值所需的那个string
- */
+// C++
+// leetcode 6
+// https://leetcode-cn.com/problems/zigzag-conversion/
+// 特殊情况，numRows = 1， 直接返回s
+// 用numRows 个string来存分类的情况
+// 再那些string模拟出返回值所需的那个string
+ 
 
 class Solution {
 public:
