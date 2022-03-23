@@ -1,18 +1,3 @@
-This program is to record my leetcode practice.
-
-Comments are mainly in Chinese, sometimes in English.
-
-Till now, I use : C++
-
-* folder started with cpp means, in this folder, the answer are written in cpp
-* folder ended with number means, the range of the exercises.
-* folder ended with "offer" means the series 《剑指offer》.
-* folder interview includes the exercises with tag "面试"
-
-push once every week
-
----------------------------------------------------
-
 本项目用于记刷leetcode的记录
 
 使用语言：
@@ -25,3 +10,18 @@ C++
 * 文件夹 **interview** 用来记录带 **面试** 标签的题目
 
 每周更新一次
+
+-----
+
+This program is to record my leetcode practice.
+
+Comments are mainly in Chinese, sometimes in English.
+
+Till now, I use : C++
+
+* folder started with cpp means, in this folder, the answer are written in cpp
+* folder ended with number means, the range of the exercises.
+* folder ended with "offer" means the series 《剑指offer》.
+* folder interview includes the exercises with tag "面试"
+
+push once every week
