@@ -7,7 +7,8 @@
 class Solution {
 public:
 	bool isGood(char& c) {
-		if(c == 'a' || c == 'e' ||  c == 'i' ||  c == 'o' ||  c == 'u' || c == 'A' || c == 'E' ||  c == 'I' ||  c == 'O' ||  c == 'U')
+		if(c == 'a' || c == 'e' ||  c == 'i' ||  c == 'o' ||  c == 'u' ||
+			 c == 'A' || c == 'E' ||  c == 'I' ||  c == 'O' ||  c == 'U')
 			return	true;
 		return	false;
 	}
@@ -19,7 +20,7 @@ public:
     	char ss[n];
     	int i = 0, j = n -1;
 
-    	while(i<j) {
+    	while(i <= j) {
 	    	while(i < n && !isGood(s[i])) {
 	    		ss[i] = s[i];
 	    		i++;
@@ -36,9 +37,6 @@ public:
 	    	i++;
 	    	j--;
 	    }
-        if(i == j) {
-            ss[i] = s[i];
-        }
 	    return string(ss, ss+n);
     }
 };

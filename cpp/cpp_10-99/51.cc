@@ -12,7 +12,7 @@ public:
 
 	int log2(int x) {
 		int res = 0;
-		if(x >= 65535) {res += 16; x >>= 16;}
+		if(x >= 65536) {res += 16; x >>= 16;}
 		if(x >= 256) {res += 8; x >>= 8; }
 		if(x >= 16) { res += 4; x >>= 4; }
 		while(x != 1) { x >>= 1; res++; }
