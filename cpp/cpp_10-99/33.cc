@@ -22,10 +22,14 @@ public:
 		if(l > r)	return -1;
 		int mid = l + (r - l) / 2;
 		if(target == nums[mid])	return mid;
-		if(target <= nums[r] && target > nums[mid])	return bisearch(nums, mid + 1, r, target);
-		if(target >= nums[l] && target < nums[mid])	return bisearch(nums, l, mid - 1, target);
-		if(nums[mid] < nums[l])	return inside(nums, l, mid - 1, target);
-		else return inside(nums, mid + 1, r, target);
+		if(target <= nums[r] && target > nums[mid])
+			return bisearch(nums, mid + 1, r, target);
+		if(target >= nums[l] && target < nums[mid])	
+			return bisearch(nums, l, mid - 1, target);
+		if(nums[mid] < nums[l])
+			return inside(nums, l, mid - 1, target);
+		else
+			return inside(nums, mid + 1, r, target);
 	}
 
     int search(vector<int>& nums, int target) {
