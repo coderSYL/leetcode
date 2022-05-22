@@ -6,7 +6,7 @@
 
 class Solution {
 public:
-    struct Info
+    struct Info // template
     {
         int x;
         int y;
