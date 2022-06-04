@@ -4,9 +4,10 @@
 C++
 
 文件夹：
-* cpp开头的表示使用语言是cpp
+* cpp 开头的表示使用语言是cpp
+* Go 开头的表示使用语言是Go
 * 结尾两个数字表示题号范围
-* offer表示剑指offer系列
+* offer 表示 *剑指offer* 系列
 * 文件夹 **interview** 用来记录带 **面试** 标签的题目
 
 每周更新一次
@@ -20,6 +21,7 @@ Comments are mainly in Chinese, sometimes in English.
 Till now, I use : C++
 
 * folder started with cpp means, in this folder, the answer are written in cpp
+* folder started with Go means, in this folder, the answer are written in Go
 * folder ended with number means, the range of the exercises.
 * folder ended with "offer" means the series 《剑指offer》.
 * folder interview includes the exercises with tag "面试"
