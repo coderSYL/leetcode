@@ -1,7 +1,6 @@
 // C++
 // leetcode 414
 // https://leetcode-cn.com/problems/third-maximum-number/
-// 
 
 
 class Solution {
