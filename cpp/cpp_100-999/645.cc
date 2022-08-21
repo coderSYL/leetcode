@@ -23,3 +23,26 @@ public:
         return vector<int>{sum - setSum, total -setSum}; // { 重复的, 少了的 }
     }
 };
+
+
+
+// // 方法二
+// class Solution {
+// public:
+//     vector<int> findErrorNums(vector<int>& nums) {
+//         int n = nums.size();
+//         int cnt[n + 1];
+//         memset(cnt, 0, sizeof(cnt));
+//         vector<int> res(2);
+//         int p = 0;
+//         for (auto x : nums)
+//             cnt[x]++;
+//         for (int i = 1; i <= n; i++) {
+//             if (cnt[i] == 0) {
+//                 res[1] = i;
+//             } else if (cnt[i] == 2)
+//                 res[0] = i;
+//         }
+//         return res;
+//     }
+// };
