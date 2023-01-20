@@ -50,3 +50,37 @@ public:
     	return nullptr;
     }
 };
+
+
+// // 方法二
+// class Solution {
+// public:
+// 	void putInVector(vector<int> &arr, TreeNode* root) {
+// 		if (root == nullptr)
+// 			return;
+
+// 		putInVector(arr, root -> left);
+// 		arr.push_back(root -> val);
+// 		putInVector(arr, root -> right);
+// 	}
+
+// 	TreeNode* makeTreeFromVector(vector<int> &arr, int l, int r) {
+// 		if (l > r)
+// 			return nullptr;
+// 		int p = r, mx = arr[r];
+// 		for (int i = l; i < r; i++) {
+// 			if (arr[i] > mx) {
+// 				mx = arr[i];
+// 				p = i;
+// 			}
+// 		}
+// 		return new TreeNode(mx, makeTreeFromVector(arr, l, p - 1), makeTreeFromVector(arr, p + 1, r));
+// 	}
+
+//     TreeNode* insertIntoMaxTree(TreeNode* root, int val) {
+//     	vector<int> arr;
+//     	putInVector(arr, root);
+//     	arr.push_back(val);
+//         return makeTreeFromVector(arr, 0, arr.size() - 1);
+//     }
+// };
