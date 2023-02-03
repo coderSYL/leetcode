@@ -1,7 +1,8 @@
 本项目用于记刷leetcode的记录
 
 使用语言：
-C++
+C++, Go
+从 2023-02-03 开始, 只使用 Go
 
 文件夹：
 * cpp 开头的表示使用语言是cpp
@@ -18,7 +19,8 @@ This program is to record my leetcode practice.
 
 Comments are mainly in Chinese, sometimes in English.
 
-Till now, I use : C++
+Till now, I use : C++, Go
+From 2023-02-03 on, use Go only
 
 * folder started with cpp means, in this folder, the answer are written in cpp
 * folder started with Go means, in this folder, the answer are written in Go
