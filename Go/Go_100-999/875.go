@@ -6,12 +6,12 @@ func minEatingSpeed(piles []int, h int) int {
 	m := 0
 	for _, v := range piles {
 		if v > m {
-            m = v
-        }
+			m = v
+		}
 	}
 	l, r := 1, m
 	for l <= r {
-		mid := (l + r + 1)>>1
+		mid := (l + r + 1) >> 1
 		if get_h(&piles, mid) <= h {
 			r = mid - 1
 		} else {
@@ -25,9 +25,9 @@ func get_h(p *[]int, k int) int {
 	res := 0
 	for _, v := range *p {
 		res += v / k
-		if v % k != 0 {
-            res++
-        }
+		if v%k != 0 {
+			res++
+		}
 	}
 	return res
 }

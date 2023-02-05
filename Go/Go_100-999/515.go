@@ -29,7 +29,7 @@ func largestValues(root *TreeNode) (res []int) {
 			}
 		}
 		res = append(res, max)
-		q = q[size : ]
+		q = q[size:]
 	}
 	return res
 }

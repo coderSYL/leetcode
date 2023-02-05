@@ -4,7 +4,7 @@
 
 func findDisappearedNumbers(nums []int) (res []int) {
 	n := len(nums)
-	cnt := make([]int, n + 1)
+	cnt := make([]int, n+1)
 	for _, x := range nums {
 		cnt[x]++
 	}

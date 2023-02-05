@@ -3,9 +3,9 @@
 // https://leetcode.cn/problems/replace-words/
 
 type TrieNode struct {
-	trie [100009][26]int
+	trie  [100009][26]int
 	count [100009]int
-	idx int
+	idx   int
 }
 
 func (t *TrieNode) insert(s string) {
@@ -35,7 +35,7 @@ func (t *TrieNode) searchPre(s string) string {
 		}
 		if t.count[p] != 0 {
 			// fmt.Println("out: ", s[0 : i])
-			return s[0 : i]
+			return s[0:i]
 		}
 
 		p = t.trie[p][u]
@@ -65,7 +65,6 @@ func replaceWords(dictionary []string, sentence string) string {
 	} else {
 		tn.clear()
 	}
-	
 
 	// 将前缀录入
 	for _, s := range dictionary {
@@ -74,12 +73,12 @@ func replaceWords(dictionary []string, sentence string) string {
 
 	n := len(sentence)
 	res := ""
-	for i := 0; i < n;  {
+	for i := 0; i < n; {
 		j := i
 		for j < n && sentence[j] != ' ' {
 			j++
 		}
-		res += tn.searchPre(sentence[i : j])
+		res += tn.searchPre(sentence[i:j])
 		if j != n {
 			res += " "
 		}
@@ -87,4 +86,3 @@ func replaceWords(dictionary []string, sentence string) string {
 	}
 	return res
 }
-

@@ -26,8 +26,8 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
 			}
 		}
 
-		return &TreeNode{mx, hepler(arr, l, p - 1), hepler(arr, p + 1, r)}
+		return &TreeNode{mx, hepler(arr, l, p-1), hepler(arr, p+1, r)}
 	}
 
-	return hepler(nums, 0, len(nums) - 1)
+	return hepler(nums, 0, len(nums)-1)
 }

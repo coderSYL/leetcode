@@ -16,7 +16,7 @@ func maxLevelSum(root *TreeNode) int {
 	q := []*TreeNode{root}
 	level := 1
 	for len(q) != 0 {
-		for len(sum) - 1 < level {
+		for len(sum)-1 < level {
 			sum = append(sum, 0)
 		}
 
@@ -34,7 +34,7 @@ func maxLevelSum(root *TreeNode) int {
 			}
 		}
 
-		q = q[size : ]
+		q = q[size:]
 
 		level++
 	}

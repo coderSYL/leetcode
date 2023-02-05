@@ -5,7 +5,7 @@
 func isAlienSorted(words []string, order string) bool {
 	getIdx := make([]int, 26)
 	for i, c := range order {
-		getIdx[int(c - 'a')] = i
+		getIdx[int(c-'a')] = i
 	}
 
 	n := len(words) - 1
@@ -27,7 +27,7 @@ func check(s1, s2 string, getIdx []int) bool {
 	}
 
 	for i := 0; i < n; i++ {
-		u1, u2 := getIdx[int(s1[i] - 'a')], getIdx[int(s2[i] - 'a')]
+		u1, u2 := getIdx[int(s1[i]-'a')], getIdx[int(s2[i]-'a')]
 		if u1 < u2 {
 			return true
 		} else if u1 > u2 {

@@ -6,7 +6,7 @@ const MOD = int64(1_000_000_007)
 
 func numPrimeArrangements(n int) (ans int) {
 	primeCnt, res := int64(1), int64(1)
-	
+
 	for i := 3; i <= n; i += 2 {
 		if isPrime(i) {
 			primeCnt++
@@ -24,7 +24,7 @@ func numPrimeArrangements(n int) (ans int) {
 		res %= MOD
 		notPrime--
 	}
-    ans = int(res)
+	ans = int(res)
 	return ans
 }
 
@@ -34,7 +34,7 @@ func isPrime(n int) bool {
 	}
 
 	// even
-	if n > 2 && n % 2 == 0 {
+	if n > 2 && n%2 == 0 {
 		return false
 	}
 
@@ -45,9 +45,9 @@ func isPrime(n int) bool {
 
 	for l <= r {
 		mid = (l + r) >> 1
-		if mid * mid == n {
+		if mid*mid == n {
 			return false
-		} else if mid * mid > n {
+		} else if mid*mid > n {
 			r = mid - 1
 		} else {
 			l = mid + 1
@@ -55,7 +55,7 @@ func isPrime(n int) bool {
 	}
 
 	for i := 3; i < l; i += 2 {
-		if n % i == 0 {
+		if n%i == 0 {
 			return false
 		}
 	}

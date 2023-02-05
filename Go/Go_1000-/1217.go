@@ -5,9 +5,9 @@
 func minCostToMoveChips(position []int) int {
 	cnt := 0
 	for _, p := range position {
-		cnt += p&1
+		cnt += p & 1
 	}
-	if len(position) - cnt < cnt {
+	if len(position)-cnt < cnt {
 		return len(position) - cnt
 	}
 	return cnt

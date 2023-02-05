@@ -4,9 +4,9 @@
 
 func largestPalindromic(num string) string {
 	// 统计每个数字出现次数
-	cnt := make([]int , 10)
+	cnt := make([]int, 10)
 	for _, b := range num {
-		cnt[int(b - '0')]++
+		cnt[int(b-'0')]++
 	}
 
 	// 成对的数录入
@@ -19,7 +19,7 @@ func largestPalindromic(num string) string {
 		n := cnt[i] >> 1
 		cnt[i] &= 1
 		for n > 0 {
-			tmp = append(tmp, byte(i + '0'))
+			tmp = append(tmp, byte(i+'0'))
 			n--
 		}
 	}
@@ -28,7 +28,7 @@ func largestPalindromic(num string) string {
 	p := len(tmp) - 1
 	for i := 9; i >= 0; i-- {
 		if cnt[i] != 0 {
-			tmp = append(tmp, byte(i + '0'))
+			tmp = append(tmp, byte(i+'0'))
 			break
 		}
 	}

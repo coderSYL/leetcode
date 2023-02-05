@@ -12,8 +12,8 @@ func min(a, b int) int {
 func findPoisonedDuration(timeSeries []int, duration int) int {
 	res := duration
 	for i := len(timeSeries) - 2; i >= 0; i-- {
-		res += min(duration, timeSeries[i + 1] - timeSeries[i])
+		res += min(duration, timeSeries[i+1]-timeSeries[i])
 	}
-	
-    return res
+
+	return res
 }

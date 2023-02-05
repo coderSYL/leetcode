@@ -13,7 +13,7 @@ func shiftGrid(g [][]int, k int) [][]int {
 
 	arr := make([]int, k)
 
-	p, x, y:= 0, 0, 0
+	p, x, y := 0, 0, 0
 
 	for p < k {
 		arr[p] = g[x][y]

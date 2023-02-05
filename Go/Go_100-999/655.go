@@ -31,20 +31,20 @@ func printTree(root *TreeNode) [][]string {
 				q_p = append(q_p, q_p[i].Right)
 			}
 		}
-		q_p = q_p[size : ]
+		q_p = q_p[size:]
 	}
 	m <<= depth
 
 	// preteatment for res
 	res := make([][]string, depth)
 	for i := 0; i < depth; i++ {
-		res[i] = make([]string, m - 1)
+		res[i] = make([]string, m-1)
 	}
 
 	// fill res
 	q_p = append(q_p, root)
 	q_idx := []int{(m - 2) / 2}
-	level, d := 0, m >> 2
+	level, d := 0, m>>2
 	for len(q_p) != 0 {
 		size := len(q_p)
 
@@ -52,17 +52,17 @@ func printTree(root *TreeNode) [][]string {
 			res[level][q_idx[i]] = strconv.Itoa(q_p[i].Val)
 			if q_p[i].Left != nil {
 				q_p = append(q_p, q_p[i].Left)
-				q_idx = append(q_idx, q_idx[i] - d)
+				q_idx = append(q_idx, q_idx[i]-d)
 			}
 			if q_p[i].Right != nil {
 				q_p = append(q_p, q_p[i].Right)
-				q_idx = append(q_idx, q_idx[i] + d)
+				q_idx = append(q_idx, q_idx[i]+d)
 			}
 		}
 		level++
 		d >>= 1
-		q_p = q_p[size : ]
-		q_idx = q_idx[size : ]
+		q_p = q_p[size:]
+		q_idx = q_idx[size:]
 	}
 
 	return res

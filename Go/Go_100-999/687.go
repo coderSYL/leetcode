@@ -33,7 +33,7 @@ func dfs(p *TreeNode, res *int) int {
 		r = 0
 	}
 
-	if *res < l + r {
+	if *res < l+r {
 		*res = l + r
 	}
 

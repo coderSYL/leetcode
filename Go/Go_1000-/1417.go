@@ -16,7 +16,7 @@ func reformat(s string) string {
 	}
 
 	// 判断是否有解
-	if numCnt + 1 < letterCnt || letterCnt + 1 < numCnt {
+	if numCnt+1 < letterCnt || letterCnt+1 < numCnt {
 		return ""
 	}
 
@@ -37,7 +37,7 @@ func reformat(s string) string {
 			tmp[i] = s[letter_p]
 			letter_p++
 		}
-        numTurn = !numTurn
+		numTurn = !numTurn
 	}
 	return string(tmp)
 }

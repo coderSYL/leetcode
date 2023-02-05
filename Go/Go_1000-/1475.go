@@ -6,8 +6,8 @@ func finalPrices(prices []int) []int {
 	n := len(prices)
 	res := make([]int, n)
 	for i := n - 1; i >= 0; i-- {
-		x, j := prices[i], i + 1
-		for  ; j < n; j++ {
+		x, j := prices[i], i+1
+		for ; j < n; j++ {
 			if prices[j] <= x {
 				break
 			}

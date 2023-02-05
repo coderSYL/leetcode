@@ -15,12 +15,12 @@ func asteroidCollision(asteroids []int) []int {
 
 		// 会撞
 		if asteroids[top] > 0 && asteroids[p] < 0 {
-			if asteroids[top] + asteroids[p] < 0 {	// 右边大，左边碎
+			if asteroids[top]+asteroids[p] < 0 { // 右边大，左边碎
 				top--
-			} else if asteroids[top] + asteroids[p] == 0 {	// 一起碎
+			} else if asteroids[top]+asteroids[p] == 0 { // 一起碎
 				top--
 				p++
-			} else {	// 栈顶大，右边碎
+			} else { // 栈顶大，右边碎
 				p++
 			}
 		} else {
@@ -30,5 +30,5 @@ func asteroidCollision(asteroids []int) []int {
 			p++
 		}
 	}
-	return asteroids[0 : top + 1]
+	return asteroids[0 : top+1]
 }

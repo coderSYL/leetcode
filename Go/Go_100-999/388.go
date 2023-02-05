@@ -7,7 +7,7 @@ func lengthLongestPath(s string) int {
 	level, res := 0, 0
 	isFile := false
 	stk := make([]int, 0, 4)
-	for i := 0; i < n;  {
+	for i := 0; i < n; {
 		level, isFile = 0, false
 		for i < n && s[i] == '\t' {
 			level++
@@ -20,16 +20,16 @@ func lengthLongestPath(s string) int {
 			}
 			j++
 		}
-		stk = stk[0 : level]
-		stk = append(stk, j - i)
+		stk = stk[0:level]
+		stk = append(stk, j-i)
 		if isFile {
-			tmp := max(len(stk) - 1, 0)
+			tmp := max(len(stk)-1, 0)
 			for _, v := range stk {
 				tmp += v
 			}
 			res = max(res, tmp)
 		}
-        i = j+1
+		i = j + 1
 	}
 	return res
 }

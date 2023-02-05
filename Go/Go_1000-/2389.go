@@ -1,3 +1,5 @@
+import "sort"
+
 // Go
 // leetcode 2389
 // https://leetcode.cn/problems/longest-subsequence-with-limited-sum/
@@ -7,12 +9,12 @@ func answerQueries(nums []int, queries []int) []int {
 	sort.Ints(nums)
 	m, n := len(nums), len(queries)
 	for i := 1; i < m; i++ {
-		nums[i] += nums[i - 1]
+		nums[i] += nums[i-1]
 	}
 
 	res := make([]int, n)
 	for i, x := range queries {
-		l, r := 0, m - 1
+		l, r := 0, m-1
 		for l <= r {
 			mid := (l + r) >> 1
 			if nums[mid] <= x {

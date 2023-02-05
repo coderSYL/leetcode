@@ -18,7 +18,7 @@ func distanceBetweenBusStops(distance []int, start int, destination int) int {
 			cur += d
 		}
 	}
-	if cur * 2 > sum {
+	if cur*2 > sum {
 		cur = sum - cur
 	}
 

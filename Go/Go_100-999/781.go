@@ -10,7 +10,7 @@ func numRabbits(answers []int) int {
 
 	res := 0
 	for v, num := range m {
-		res += ((num - 1 )/ v + 1) * v
+		res += ((num-1)/v + 1) * v
 	}
 
 	return res

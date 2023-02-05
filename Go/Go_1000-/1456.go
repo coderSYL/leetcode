@@ -20,8 +20,8 @@ func maxVowels(s string, k int) int {
 
 func isVowel(c byte) bool {
 	switch c {
-		case 'a', 'e', 'i', 'o', 'u':
-			return true
+	case 'a', 'e', 'i', 'o', 'u':
+		return true
 	}
 	return false
 }

@@ -15,7 +15,7 @@ func numFriendRequests(ages []int) (res int) {
 		}
 
 		tmp := 0
-		for j := i / 2 + 8; j <= i; j++ {
+		for j := i/2 + 8; j <= i; j++ {
 			tmp += cnt[j]
 		}
 

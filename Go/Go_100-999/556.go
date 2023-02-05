@@ -5,7 +5,7 @@
 func nextGreaterElement(n int) int {
 	arr, pre := make([]int, 0, 2), n
 	for n > 0 {
-		arr = append(arr, n % 10)
+		arr = append(arr, n%10)
 		n /= 10
 	}
 	n = len(arr)
@@ -17,24 +17,24 @@ func nextGreaterElement(n int) int {
 
 	if p != 0 {
 		q, tmp := p, 0
-		for q + 1 < n && arr[q + 1] > arr[p - 1] {
+		for q+1 < n && arr[q+1] > arr[p-1] {
 			q++
 		}
-		tmp = arr[p - 1]
-		arr[p - 1] = arr[q]
+		tmp = arr[p-1]
+		arr[p-1] = arr[q]
 		arr[q] = tmp
-		reverse(arr, p, n - 1)
-		reverse(arr, 0, n - 1) 
+		reverse(arr, p, n-1)
+		reverse(arr, 0, n-1)
 	}
 	var a int64
 	for i := n - 1; i >= 0; i-- {
-		a = a * 10 + int64(arr[i])
+		a = a*10 + int64(arr[i])
 	}
 	if a > 0b1111111111111111111111111111111 {
 		return -1
 	}
 	res := int(a)
-	if(res <= pre) {
+	if res <= pre {
 		return -1
 	}
 	return res

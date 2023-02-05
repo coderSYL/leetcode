@@ -20,9 +20,9 @@ func maximumProduct(nums []int) int {
 	for i := 2; i < n; i++ {
 		t := nums[i]
 		for j := 2; j >= 0; j-- {
-			x, y := f[0][j] * t, f[1][j] * t
-			f[0][j + 1] = min(x, y, f[0][j + 1])
-			f[1][j + 1] = max(x, y, f[1][j + 1])
+			x, y := f[0][j]*t, f[1][j]*t
+			f[0][j+1] = min(x, y, f[0][j+1])
+			f[1][j+1] = max(x, y, f[1][j+1])
 		}
 	}
 	return f[1][3]

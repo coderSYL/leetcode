@@ -4,7 +4,7 @@
 
 type Map struct {
 	He, Ne, E, In []int
-	Idx int
+	Idx           int
 }
 
 func Constructor() Map {
@@ -29,7 +29,7 @@ func sequenceReconstruction(nums []int, sequences [][]int) bool {
 	m := Constructor()
 	for i := 0; i < len(sequences); i++ {
 		for j := 1; j < len(sequences[i]); j++ {
-			m.add(sequences[i][j - 1], sequences[i][j])
+			m.add(sequences[i][j-1], sequences[i][j])
 		}
 	}
 
@@ -42,13 +42,13 @@ func sequenceReconstruction(nums []int, sequences [][]int) bool {
 
 	loc := 0
 	for len(q) != 0 {
-        // fmt.Println("start loop size", len(q))
+		// fmt.Println("start loop size", len(q))
 		if len(q) != 1 {
 			return false
 		}
 
 		t := q[0]
-        // fmt.Println(t)
+		// fmt.Println(t)
 		if nums[loc] != t {
 			return false
 		}
@@ -56,13 +56,13 @@ func sequenceReconstruction(nums []int, sequences [][]int) bool {
 
 		for i := m.He[t]; i != -1; i = m.Ne[i] {
 			j := m.E[i]
-            // fmt.Println("edge",j)
-            m.In[j]--
+			// fmt.Println("edge",j)
+			m.In[j]--
 			if m.In[j] == 0 {
 				q = append(q, j)
 			}
 		}
-		q = q[1 : ]
+		q = q[1:]
 		// fmt.Println("end loop size", len(q))
 	}
 	return true

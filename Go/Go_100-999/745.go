@@ -3,7 +3,7 @@
 // https://leetcode.cn/problems/prefix-and-suffix-search/
 
 type TrieNode struct {
-	Tns [26]*TrieNode
+	Tns  [26]*TrieNode
 	idxs []int
 }
 
@@ -44,7 +44,7 @@ func Query(tr1, tr2 *TrieNode, a, b string) int {
 	}
 
 	// 在 tr2 里搜索 以 b 为前缀的字符串的编号
-	for i:= len(b) - 1; i >= 0; i-- {
+	for i := len(b) - 1; i >= 0; i-- {
 		u = int(b[i] - 'a')
 		if tr2.Tns[u] == nil {
 			return -1
@@ -53,7 +53,7 @@ func Query(tr1, tr2 *TrieNode, a, b string) int {
 	}
 
 	// 在两个数组里搜索最大的共同编号
-	for i, j := len(tr1.idxs) - 1, len(tr2.idxs) - 1; i >= 0 && j >= 0; {
+	for i, j := len(tr1.idxs)-1, len(tr2.idxs)-1; i >= 0 && j >= 0; {
 		if tr1.idxs[i] == tr2.idxs[j] {
 			return tr1.idxs[i]
 		} else if tr1.idxs[i] > tr2.idxs[j] {
@@ -70,22 +70,19 @@ type WordFilter struct {
 	tr1, tr2 *TrieNode
 }
 
-
 func Constructor(words []string) WordFilter {
 	t1, t2 := &TrieNode{}, &TrieNode{}
 
 	for i, s := range words {
 		Insert(t1, t2, s, i)
 	}
-	
+
 	return WordFilter{t1, t2}
 }
-
 
 func (this *WordFilter) F(pref string, suff string) int {
 	return Query(this.tr1, this.tr2, pref, suff)
 }
-
 
 /**
  * Your WordFilter object will be instantiated and called as such:

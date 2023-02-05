@@ -1,3 +1,5 @@
+import "sort"
+
 // Go
 // leetcode 1051
 // https://leetcode.cn/problems/height-checker/

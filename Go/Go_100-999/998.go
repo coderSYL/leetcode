@@ -8,7 +8,6 @@
 // 	  	  val的结点将新结点插入到右子树，新结点的左子树插上原先的右子树
 // 	  	2)若找不到这种右子树，则在最后一个结点的空的右子树上插入新结点
 
-
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -18,7 +17,7 @@
  * }
  */
 
- func findParentForNewNode(p *TreeNode, val int) *TreeNode {
+func findParentForNewNode(p *TreeNode, val int) *TreeNode {
 	if p == nil || p.Val < val {
 		return nil
 	}

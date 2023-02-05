@@ -1,3 +1,5 @@
+import "sort"
+
 // Go
 // leetcode 899
 // https://leetcode.cn/problems/orderly-queue/
@@ -28,7 +30,7 @@ func orderlyQueue(s string, k int) string {
 			return s
 		}
 
-		return s[p : ] + s[0 : p]
+		return s[p:] + s[0:p]
 	}
 
 	tmp := []byte(s)

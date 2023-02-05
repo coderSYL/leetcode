@@ -19,7 +19,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	carry := false
 
 	l1.Val += l2.Val
-	if(l1.Val >= 10) {
+	if l1.Val >= 10 {
 		l1.Val %= 10
 		carry = true
 	}
@@ -45,11 +45,11 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 			l2 = l2.Next
 		}
 		if p.Next == nil {
-            tmp := &ListNode{}
+			tmp := &ListNode{}
 			p.Next = tmp
 		}
 		p = p.Next
-		if(sum >= 10) {
+		if sum >= 10 {
 			sum %= 10
 			carry = true
 		}

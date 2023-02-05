@@ -18,7 +18,7 @@ outer:
 		inner:
 			for k := 0; k <= diff; k++ {
 				for p, v := range ws[i] {
-					if byte(v) != ws[j][k + p] {
+					if byte(v) != ws[j][k+p] {
 						continue inner
 					}
 				}

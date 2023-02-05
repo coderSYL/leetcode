@@ -18,7 +18,7 @@ func convert(s string, numRows int) string {
 			cur = 1
 			d = 1
 		}
- 	}
+	}
 	bs := make([]byte, 0, n)
 	for i := 0; i < numRows; i++ {
 		bs = append(bs, tmp[i]...)

@@ -15,7 +15,7 @@ func lengthOfLongestSubstring(s string) int {
 		} else {
 			vis[idx_j] = true
 		}
-		if j - i + 1 > res {
+		if j-i+1 > res {
 			res = j - i + 1
 		}
 	}

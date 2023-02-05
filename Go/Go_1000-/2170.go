@@ -22,7 +22,7 @@ func minimumOperations(nums []int) int {
 	}
 
 	if p[0][0] == p[1][0] {
-		return len(nums) - maxOf2(cnt[0][p[0][0]] + cnt[1][p[1][1]], cnt[0][p[0][1]] + cnt[1][p[1][0]])
+		return len(nums) - maxOf2(cnt[0][p[0][0]]+cnt[1][p[1][1]], cnt[0][p[0][1]]+cnt[1][p[1][0]])
 	}
 
 	return len(nums) - cnt[0][p[0][0]] - cnt[1][p[1][0]]

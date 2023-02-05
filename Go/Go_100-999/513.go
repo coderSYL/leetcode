@@ -24,7 +24,7 @@ func findBottomLeftValue(root *TreeNode) (res int) {
 				q = append(q, node.Right)
 			}
 		}
-		q = q[size : ]
+		q = q[size:]
 	}
 	return res
 }

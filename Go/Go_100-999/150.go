@@ -9,7 +9,7 @@ import (
 
 func evalRPN(tokens []string) int {
 	stk := make([]int, 0, 4)
-    var n int
+	var n int
 	for _, s := range tokens {
 		if len(s) == 1 && isSymbol(s[0]) {
 			n = len(stk)

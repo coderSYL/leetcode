@@ -4,9 +4,9 @@
 
 func corpFlightBookings(bookings [][]int, n int) []int {
 	res := make([]int, n)
-	
-	for _, order:= range bookings {
-		res[order[0] - 1] += order[2]
+
+	for _, order := range bookings {
+		res[order[0]-1] += order[2]
 		if order[1] < n {
 			res[order[1]] -= order[2]
 		}

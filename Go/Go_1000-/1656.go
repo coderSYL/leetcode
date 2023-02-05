@@ -8,7 +8,6 @@ type OrderedStream struct {
 	tmp []byte
 }
 
-
 func Constructor(n int) OrderedStream {
 	arr := make([]int, n)
 	for i := 0; i < n; i++ {
@@ -20,7 +19,7 @@ func Constructor(n int) OrderedStream {
 func getIdx(s string) int {
 	idx := 0
 	for i := 0; i < 5; i++ {
-		idx = idx * 26 + int(s[i] - 'a')
+		idx = idx*26 + int(s[i]-'a')
 	}
 	return idx
 }
@@ -31,7 +30,7 @@ func (t *OrderedStream) LoadInTmp(x int) bool {
 	}
 
 	for i := 4; i >= 0; i-- {
-		t.tmp[i] = 'a' + byte(x % 26)
+		t.tmp[i] = 'a' + byte(x%26)
 		x /= 26
 	}
 
@@ -40,7 +39,7 @@ func (t *OrderedStream) LoadInTmp(x int) bool {
 
 func (t *OrderedStream) Insert(idKey int, value string) []string {
 	res := []string{}
-	t.arr[idKey - 1] = getIdx(value)
+	t.arr[idKey-1] = getIdx(value)
 	p := t.ptr
 	for p < len(t.arr) {
 		if t.LoadInTmp(t.arr[p]) {
@@ -53,7 +52,6 @@ func (t *OrderedStream) Insert(idKey int, value string) []string {
 	t.ptr = p
 	return res
 }
-
 
 /**
  * Your OrderedStream object will be instantiated and called as such:

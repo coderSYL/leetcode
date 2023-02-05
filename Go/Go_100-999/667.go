@@ -4,7 +4,7 @@
 
 func constructArray(n int, k int) []int {
 	k--
-	up, down, times := 1, n, k >> 1
+	up, down, times := 1, n, k>>1
 
 	res := make([]int, n)
 	for i := 0; i < n; i++ {
@@ -17,8 +17,8 @@ func constructArray(n int, k int) []int {
 			up++
 		}
 	}
-	
-	if (k % 2 == 1) {
+
+	if k%2 == 1 {
 		res[n-1], res[n-2] = res[n-2], res[n-1]
 	}
 	return res

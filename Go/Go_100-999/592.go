@@ -1,3 +1,5 @@
+import "fmt"
+
 // Go
 // leetcode 592
 // https://leetcode.cn/problems/fraction-addition-and-subtraction/
@@ -15,7 +17,6 @@ func getGcd(a, b int) int {
 	return getGcd(b, a%b)
 }
 
-
 func fractionAddition(expression string) string {
 	arr := make([]int, 0, 20)
 	isNegative := false
@@ -23,37 +24,37 @@ func fractionAddition(expression string) string {
 	// 数据录入
 	for _, c := range expression {
 		switch c {
-			case '/':
-				if isNegative {
-					tmp = -tmp
-					isNegative = false
-				}
-				arr = append(arr, tmp)
-				tmp = 0
-			case '+':
-				if isNegative {
-					tmp = -tmp
-				}
-				arr = append(arr, tmp)
-				tmp = 0
+		case '/':
+			if isNegative {
+				tmp = -tmp
 				isNegative = false
-			case '-':
-				if isNegative {
-					tmp = -tmp
-				}
-				if tmp != 0 {
-					arr = append(arr, tmp)
-				}
-				
-				tmp = 0
-				isNegative = true
-			default:
-				tmp = tmp * 10 + int(c - '0')
+			}
+			arr = append(arr, tmp)
+			tmp = 0
+		case '+':
+			if isNegative {
+				tmp = -tmp
+			}
+			arr = append(arr, tmp)
+			tmp = 0
+			isNegative = false
+		case '-':
+			if isNegative {
+				tmp = -tmp
+			}
+			if tmp != 0 {
+				arr = append(arr, tmp)
+			}
+
+			tmp = 0
+			isNegative = true
+		default:
+			tmp = tmp*10 + int(c-'0')
 		}
 	}
-    arr = append(arr, tmp)
+	arr = append(arr, tmp)
 
-    // 数据处理
+	// 数据处理
 	for len(arr) != 2 {
 		// 运算
 		tmp = getGcd(arr[1], arr[3])
@@ -73,7 +74,7 @@ func fractionAddition(expression string) string {
 		arr[3] /= tmp
 
 		// 去掉头两位
-		arr = arr[2 : ]
+		arr = arr[2:]
 	}
 
 	res := fmt.Sprint(arr[0], "/", arr[1])

@@ -14,5 +14,5 @@ func removeStars(s string) string {
 			p++
 		}
 	}
-	return string(tmp[0 : p])
+	return string(tmp[0:p])
 }

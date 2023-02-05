@@ -4,14 +4,12 @@
 
 type MyCircularQueue struct {
 	Start, Next, ArrSize int
-	Arr []int
+	Arr                  []int
 }
-
 
 func Constructor(k int) MyCircularQueue {
-	return MyCircularQueue{0, 0, k + 1, make([]int, k + 1)}
+	return MyCircularQueue{0, 0, k + 1, make([]int, k+1)}
 }
-
 
 func (t *MyCircularQueue) EnQueue(value int) bool {
 	if t.IsFull() {
@@ -23,7 +21,6 @@ func (t *MyCircularQueue) EnQueue(value int) bool {
 	return true
 }
 
-
 func (t *MyCircularQueue) DeQueue() bool {
 	if t.IsEmpty() {
 		return false
@@ -33,7 +30,6 @@ func (t *MyCircularQueue) DeQueue() bool {
 	return true
 }
 
-
 func (t *MyCircularQueue) Front() int {
 	if t.IsEmpty() {
 		return -1
@@ -42,25 +38,21 @@ func (t *MyCircularQueue) Front() int {
 	return t.Arr[t.Start]
 }
 
-
 func (t *MyCircularQueue) Rear() int {
 	if t.IsEmpty() {
 		return -1
 	}
 
-	return t.Arr[(t.Next - 1 + t.ArrSize) % t.ArrSize]
+	return t.Arr[(t.Next-1+t.ArrSize)%t.ArrSize]
 }
-
 
 func (t *MyCircularQueue) IsEmpty() bool {
 	return t.Start == t.Next
 }
 
-
 func (t *MyCircularQueue) IsFull() bool {
-	return t.Start == (t.Next + 1) % t.ArrSize
+	return t.Start == (t.Next+1)%t.ArrSize
 }
-
 
 /**
  * Your MyCircularQueue object will be instantiated and called as such:

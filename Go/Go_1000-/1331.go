@@ -1,3 +1,5 @@
+import "sort"
+
 // Go
 // leetcode 1331
 // https://leetcode.cn/problems/rank-transform-of-an-array/

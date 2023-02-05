@@ -17,7 +17,7 @@ func solveEquation(s string) string {
 	afterEqual := false
 
 loop:
-	for i, j := 0, 0; i < n;   {
+	for i, j := 0, 0; i < n; {
 		cur := 1
 
 		switch s[i] {
@@ -38,7 +38,7 @@ loop:
 			j++
 		}
 		if i != j {
-			tmp , _ := strconv.Atoi(s[i : j])
+			tmp, _ := strconv.Atoi(s[i:j])
 			cur *= tmp
 		}
 
@@ -70,5 +70,5 @@ loop:
 		}
 	}
 
-	return "x=" + strconv.Itoa(val / xCnt)
+	return "x=" + strconv.Itoa(val/xCnt)
 }

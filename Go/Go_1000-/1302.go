@@ -25,7 +25,7 @@ func deepestLeavesSum(root *TreeNode) int {
 				q = append(q, q[i].Right)
 			}
 		}
-		q = q[sz : ]
+		q = q[sz:]
 	}
 	return sum
 }

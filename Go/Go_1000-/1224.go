@@ -7,17 +7,17 @@ func maxEqualFreq(nums []int) int {
 	cnt, sum := make([]int, 100009), make([]int, 100009)
 	for i, x := range nums {
 		cnt[x]++
-		len, cur := i + 1, cnt[x]
-		sum[cur - 1]--
+		len, cur := i+1, cnt[x]
+		sum[cur-1]--
 		sum[cur]++
 		mx = max(mx, cur)
 
 		// check
 		if mx == 1 {
 			res = len
-		} else if mx * sum[mx] == i {
+		} else if mx*sum[mx] == i {
 			res = len
-		} else if (mx - 1) * (sum[mx - 1] + 1) == i {
+		} else if (mx-1)*(sum[mx-1]+1) == i {
 			res = len
 		}
 	}

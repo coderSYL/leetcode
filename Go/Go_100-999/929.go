@@ -22,16 +22,16 @@ func numUniqueEmails(emails []string) int {
 			}
 			// 根据 s[i] 的不同，进行处理
 			switch c {
-				case '.' :
-				case '+' :
-						for s[i+1] != '@' {
-							i++
-						}
-				case '@' :
-						buf = append(buf, c)
-						get_at = true
-				default :
-						buf = append(buf, c)
+			case '.':
+			case '+':
+				for s[i+1] != '@' {
+					i++
+				}
+			case '@':
+				buf = append(buf, c)
+				get_at = true
+			default:
+				buf = append(buf, c)
 			}
 		}
 		set[string(buf)] = true

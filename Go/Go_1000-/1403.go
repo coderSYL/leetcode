@@ -1,3 +1,5 @@
+import "sort"
+
 // Go
 // leetcode 1403
 // https://leetcode.cn/problems/minimum-subsequence-in-non-increasing-order/
@@ -14,10 +16,10 @@ func minSubsequence(nums []int) []int {
 		sum += v
 	}
 	cur, i := 0, 0
-	for cur * 2 <= sum {
+	for cur*2 <= sum {
 		cur += tmp[i]
 		i++
 	}
 
-	return tmp[0 : i]
+	return tmp[0:i]
 }

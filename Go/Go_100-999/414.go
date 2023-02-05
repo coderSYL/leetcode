@@ -1,10 +1,12 @@
+import "sort"
+
 // Go
 // leetcode 414
 // https://leetcode-cn.com/problems/third-maximum-number/
 
 func thirdMax(nums []int) int {
 	sort.Ints(nums)
-	cur, rk := nums[len(nums) - 1], 1
+	cur, rk := nums[len(nums)-1], 1
 	for i := len(nums) - 2; i >= 0; i-- {
 		if nums[i] < cur {
 			rk++
@@ -14,9 +16,8 @@ func thirdMax(nums []int) int {
 			cur = nums[i]
 		}
 	}
-	return nums[len(nums) - 1]
+	return nums[len(nums)-1]
 }
-
 
 // // 方法二
 // type tri struct {

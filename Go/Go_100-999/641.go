@@ -3,16 +3,14 @@
 // https://leetcode.cn/problems/design-circular-deque/
 
 type MyCircularDeque struct {
-	arr []int
-	head, end int
+	arr        []int
+	head, end  int
 	lastOpIsIn bool
 }
-
 
 func Constructor(k int) MyCircularDeque {
 	return MyCircularDeque{make([]int, k), 1, 0, false}
 }
-
 
 func (t *MyCircularDeque) InsertFront(value int) bool {
 	if t.IsFull() {
@@ -25,7 +23,6 @@ func (t *MyCircularDeque) InsertFront(value int) bool {
 	return true
 }
 
-
 func (t *MyCircularDeque) InsertLast(value int) bool {
 	if t.IsFull() {
 		return false
@@ -37,7 +34,6 @@ func (t *MyCircularDeque) InsertLast(value int) bool {
 	return true
 }
 
-
 func (t *MyCircularDeque) DeleteFront() bool {
 	if t.IsEmpty() {
 		return false
@@ -47,7 +43,6 @@ func (t *MyCircularDeque) DeleteFront() bool {
 	t.lastOpIsIn = false
 	return true
 }
-
 
 func (t *MyCircularDeque) DeleteLast() bool {
 	if t.IsEmpty() {
@@ -59,14 +54,12 @@ func (t *MyCircularDeque) DeleteLast() bool {
 	return true
 }
 
-
 func (t *MyCircularDeque) GetFront() int {
 	if t.IsEmpty() {
 		return -1
 	}
 	return t.arr[t.head]
 }
-
 
 func (t *MyCircularDeque) GetRear() int {
 	if t.IsEmpty() {
@@ -75,24 +68,21 @@ func (t *MyCircularDeque) GetRear() int {
 	return t.arr[t.end]
 }
 
-
 func (t *MyCircularDeque) IsEmpty() bool {
-	if (t.end + 1) % len(t.arr) == t.head && !t.lastOpIsIn {
+	if (t.end+1)%len(t.arr) == t.head && !t.lastOpIsIn {
 		return true
 	}
 
 	return false
 }
-
 
 func (t *MyCircularDeque) IsFull() bool {
-	if (t.end + 1) % len(t.arr) == t.head && t.lastOpIsIn {
+	if (t.end+1)%len(t.arr) == t.head && t.lastOpIsIn {
 		return true
 	}
 
 	return false
 }
-
 
 /**
  * Your MyCircularDeque object will be instantiated and called as such:

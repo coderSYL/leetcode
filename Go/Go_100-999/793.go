@@ -16,7 +16,7 @@ func preimageSizeFZF(k int) int {
 	var l, r, kk int64 = 0, int64(k), int64(k)
 
 	for l <= r {
-		mid := (r - l) / 2 + l
+		mid := (r-l)/2 + l
 		x := get5(mid)
 		if x == kk {
 			return 5
@@ -26,7 +26,7 @@ func preimageSizeFZF(k int) int {
 			r = mid - 1
 		}
 	}
-	
+
 	// 没找到
 	return 0
 }

@@ -8,8 +8,8 @@ func isPrefixOfWord(sentence string, word string) int {
 		idx++
 
 		p := 0
-		for p + i < n && p < m {
-			if sentence[i + p] == word[p]{
+		for p+i < n && p < m {
+			if sentence[i+p] == word[p] {
 				p++
 			} else {
 				break

@@ -1,3 +1,5 @@
+import "math/rand"
+
 // Go
 // leetcode 1206
 // https://leetcode.cn/problems/design-skiplist/
@@ -6,7 +8,7 @@ var level int = 10
 
 type Node struct {
 	val int
-	ne []*Node
+	ne  []*Node
 }
 
 func newNode(v int) *Node {
@@ -17,7 +19,6 @@ type Skiplist struct {
 	ns []*Node
 	he *Node
 }
-
 
 func Constructor() Skiplist {
 	return Skiplist{make([]*Node, level), newNode(-1)}
@@ -35,23 +36,21 @@ func (this *Skiplist) Find(t int) {
 
 func (this *Skiplist) Search(t int) bool {
 	this.Find(t)
-	return this.ns[0].ne[0] != nil && this.ns[0].ne[0].val == t;
+	return this.ns[0].ne[0] != nil && this.ns[0].ne[0].val == t
 }
 
-
-func (this *Skiplist) Add(t int)  {
+func (this *Skiplist) Add(t int) {
 	this.Find(t)
 	node := newNode(t)
 
 	for i := 0; i < level; i++ {
-		node.ne[i] = this.ns[i].ne[i];
+		node.ne[i] = this.ns[i].ne[i]
 		this.ns[i].ne[i] = node
 		if rand.Intn(2) == 0 {
 			break
 		}
 	}
 }
-
 
 func (this *Skiplist) Erase(t int) bool {
 	this.Find(t)
@@ -63,9 +62,8 @@ func (this *Skiplist) Erase(t int) bool {
 	for i := 0; i < level && this.ns[i].ne[i] == node; i++ {
 		this.ns[i].ne[i] = this.ns[i].ne[i].ne[i]
 	}
-    return true
+	return true
 }
-
 
 /**
  * Your Skiplist object will be instantiated and called as such:

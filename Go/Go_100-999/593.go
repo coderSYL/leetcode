@@ -2,7 +2,7 @@
 // leetcode 593
 // https://leetcode.cn/problems/valid-square/
 
-type Cnt struct{
+type Cnt struct {
 	Min, c1, Max, c2 int
 }
 
@@ -10,7 +10,7 @@ func getCnt() Cnt {
 	return Cnt{1000_000_000, 0, -1000_000_000, 0}
 }
 
-func (t *Cnt)insert(v int) {
+func (t *Cnt) insert(v int) {
 	if v < t.Min {
 		t.Min = v
 		t.c1 = 1
@@ -27,7 +27,7 @@ func (t *Cnt)insert(v int) {
 }
 
 func (t *Cnt) check() bool {
-	if t.Min * 2 != t.Max {
+	if t.Min*2 != t.Max {
 		return false
 	}
 
@@ -43,13 +43,13 @@ func (t *Cnt) check() bool {
 }
 
 func getD2(p1, p2 []int) int {
-	dx, dy := p1[0] - p2[0], p1[1] - p2[1]
-	return dx * dx + dy * dy
+	dx, dy := p1[0]-p2[0], p1[1]-p2[1]
+	return dx*dx + dy*dy
 }
 
 func validSquare(p1 []int, p2 []int, p3 []int, p4 []int) bool {
 	cnt := getCnt()
-	
+
 	cnt.insert(getD2(p1, p2))
 	cnt.insert(getD2(p1, p3))
 	cnt.insert(getD2(p1, p4))

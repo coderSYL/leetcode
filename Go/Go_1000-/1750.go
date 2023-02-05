@@ -3,8 +3,8 @@
 // https://leetcode.cn/problems/minimum-length-of-string-after-deleting-similar-ends/
 
 func minimumLength(s string) int {
-    n := len(s)
-	start, end := 0, n - 1
+	n := len(s)
+	start, end := 0, n-1
 	for start < end {
 		if s[start] != s[end] {
 			break

@@ -8,7 +8,7 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) (res float64) {
 	pass := (len(nums1) + len(nums2) - 1) / 2
 	l_pass, r_pass := 0, 0
 	l1, l2 := 0, 0
-	r1, r2 := n1 - 1, n2 - 1
+	r1, r2 := n1-1, n2-1
 	for l_pass < pass {
 		if l1 > r1 {
 			// l1 炸了

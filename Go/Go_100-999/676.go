@@ -4,9 +4,9 @@
 
 // 方法一，字典树
 type TrieNode struct {
-	Trie [10009][26]int
+	Trie      [10009][26]int
 	IsWordEnd [10009]bool
-	Idx int
+	Idx       int
 }
 
 func (t *TrieNode) insert(s string) {
@@ -32,7 +32,7 @@ func (t *TrieNode) searchP(s string, p, cur int, changed bool) bool {
 		if t.Trie[p][i] == 0 || (changed && i != u) {
 			continue
 		}
-		if t.searchP(s, t.Trie[p][i], cur + 1, changed || i != u) {
+		if t.searchP(s, t.Trie[p][i], cur+1, changed || i != u) {
 			return true
 		}
 	}
@@ -40,28 +40,23 @@ func (t *TrieNode) searchP(s string, p, cur int, changed bool) bool {
 	return false
 }
 
-
 type MagicDictionary struct {
 	tn *TrieNode
 }
-
 
 func Constructor() MagicDictionary {
 	return MagicDictionary{&TrieNode{}}
 }
 
-
-func (this *MagicDictionary) BuildDict(dictionary []string)  {
+func (this *MagicDictionary) BuildDict(dictionary []string) {
 	for _, s := range dictionary {
 		this.tn.insert(s)
 	}
 }
 
-
 func (this *MagicDictionary) Search(searchWord string) bool {
 	return this.tn.searchP(searchWord, 0, 0, false)
 }
-
 
 /**
  * Your MagicDictionary object will be instantiated and called as such:
@@ -70,24 +65,20 @@ func (this *MagicDictionary) Search(searchWord string) bool {
  * param_2 := obj.Search(searchWord);
  */
 
-
 //  // 方法二，map
 //  type MagicDictionary struct {
 //     Map map[int][]string
 // }
 
-
 // func Constructor() MagicDictionary {
 //     return MagicDictionary{map[int][]string{}}
 // }
-
 
 // func (this *MagicDictionary) BuildDict(dictionary []string)  {
 //     for _, d := range dictionary {
 //         this.Map[len(d)] = append(this.Map[len(d)], d)
 //     }
 // }
-
 
 // func (this *MagicDictionary) Search(searchWord string) bool {
 //     out:
@@ -107,7 +98,6 @@ func (this *MagicDictionary) Search(searchWord string) bool {
 //     }
 //     return false
 // }
-
 
 // /**
 //  * Your MagicDictionary object will be instantiated and called as such:

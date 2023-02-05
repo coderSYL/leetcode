@@ -16,7 +16,7 @@ func findShortestSubArray(nums []int) int {
 
 		if cnt[x] > mx {
 			mx = cnt[x]
-			candidates = candidates[0 : 0]
+			candidates = candidates[0:0]
 		}
 
 		if cnt[x] == mx {
@@ -28,7 +28,7 @@ func findShortestSubArray(nums []int) int {
 	res := 99999
 	// fmt.Println(mx)
 	for _, x := range candidates {
-		res = min(res, last[x] - first[x] + 1)
+		res = min(res, last[x]-first[x]+1)
 	}
 	return res
 }

@@ -12,11 +12,11 @@ func lenLongestFibSubseq(arr []int) int {
 	res := 0
 	for i := 0; i < n; i++ {
 		for j := i + 1; j < n; j++ {
-			if k, ok := getIdx[arr[i] + arr[j]]; ok {
+			if k, ok := getIdx[arr[i]+arr[j]]; ok {
 				if f[i][j] == 0 {
 					f[j][k] = 3
 				} else {
-					f[j][k] = f[i][j] + 1;
+					f[j][k] = f[i][j] + 1
 				}
 				res = max(res, f[j][k])
 			}

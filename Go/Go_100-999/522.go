@@ -22,7 +22,6 @@ outer:
 	return res
 }
 
-
 // check if string s1 is subsequence of string s2
 func check(s1, s2 string) bool {
 	n1, n2 := len(s1), len(s2)

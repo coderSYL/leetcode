@@ -12,9 +12,8 @@
  */
 type CBTInserter struct {
 	TreeSize int
-	Root *TreeNode
+	Root     *TreeNode
 }
-
 
 func Constructor(root *TreeNode) CBTInserter {
 	res := 0
@@ -22,7 +21,7 @@ func Constructor(root *TreeNode) CBTInserter {
 	for len(q) != 0 {
 		size := len(q)
 		res += size
-		if size * 2 - 1 != res {
+		if size*2-1 != res {
 			break
 		}
 
@@ -38,12 +37,11 @@ func Constructor(root *TreeNode) CBTInserter {
 				break
 			}
 		}
-		q = q[size : ]
+		q = q[size:]
 	}
 
 	return CBTInserter{res, root}
 }
-
 
 func (this *CBTInserter) Insert(val int) int {
 	this.TreeSize++
@@ -64,7 +62,7 @@ func (this *CBTInserter) Insert(val int) int {
 		}
 	}
 
-	if curIdx & 1 == 0 {
+	if curIdx&1 == 0 {
 		p.Left = &TreeNode{val, nil, nil}
 	} else {
 		p.Right = &TreeNode{val, nil, nil}
@@ -73,11 +71,9 @@ func (this *CBTInserter) Insert(val int) int {
 	return p.Val
 }
 
-
 func (this *CBTInserter) Get_root() *TreeNode {
 	return this.Root
 }
-
 
 /**
  * Your CBTInserter object will be instantiated and called as such:

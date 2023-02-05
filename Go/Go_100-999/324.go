@@ -12,7 +12,7 @@ func qSelect(arr []int, l, r, k int) int {
 	if l == r {
 		return arr[l]
 	}
-	x, i, j := arr[(l+r) >> 1], l - 1, r + 1
+	x, i, j := arr[(l+r)>>1], l-1, r+1
 	for i < j {
 		for {
 			i++
@@ -35,16 +35,16 @@ func qSelect(arr []int, l, r, k int) int {
 		return qSelect(arr, l, j, k)
 	}
 	// else
-	return qSelect(arr, j + 1, r, k - cnt)
+	return qSelect(arr, j+1, r, k-cnt)
 }
 
 func getIdx(x, n int) int {
-	return (2 * x + 1) % (n | 1)
+	return (2*x + 1) % (n | 1)
 }
 
-func wiggleSort(nums []int)  {
+func wiggleSort(nums []int) {
 	n := len(nums)
-	x := qSelect(nums, 0, n-1, (n+1) >> 1)
+	x := qSelect(nums, 0, n-1, (n+1)>>1)
 	l, r, loc := 0, n-1, 0
 	for loc <= r {
 		if nums[getIdx(loc, n)] > x {
@@ -55,7 +55,7 @@ func wiggleSort(nums []int)  {
 			swap(nums, getIdx(loc, n), getIdx(r, n))
 			r--
 		} else {
-        	loc++
-        }
+			loc++
+		}
 	}
 }

@@ -3,10 +3,10 @@
 // https://leetcode.cn/problems/substring-with-concatenation-of-all-words/
 
 func findSubstring(s string, words []string) []int {
-	n, wordNum, wordLength:= len(s), len(words), len(words[0])
+	n, wordNum, wordLength := len(s), len(words), len(words[0])
 	res := make([]int, 0, 5)
 
-	// 
+	//
 	need := make(map[string]int, wordNum)
 	for _, word := range words {
 		need[word]++
@@ -16,8 +16,8 @@ func findSubstring(s string, words []string) []int {
 	for i := 0; i < wordLength && i < n; i++ {
 		l, r, cnt := i, i, 0
 		cur := make(map[string]int)
-		for r + wordLength <= n {
-			curWord := s[r : r + wordLength]
+		for r+wordLength <= n {
+			curWord := s[r : r+wordLength]
 			r += wordLength
 
 			curNeed, ok := need[curWord]
@@ -27,7 +27,7 @@ func findSubstring(s string, words []string) []int {
 				cnt++
 
 				for cur[curWord] > curNeed {
-					toBeDelete := s[l : l + wordLength]
+					toBeDelete := s[l : l+wordLength]
 					l += wordLength
 					cur[toBeDelete]--
 					cnt--
@@ -41,7 +41,7 @@ func findSubstring(s string, words []string) []int {
 				l = r
 				cnt = 0
 				cur = make(map[string]int)
-				if l + wordNum * wordLength > n {
+				if l+wordNum*wordLength > n {
 					continue
 				}
 			}

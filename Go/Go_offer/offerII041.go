@@ -3,16 +3,14 @@
 // https://leetcode.cn/problems/qIsx9U/
 
 type MovingAverage struct {
-	Arr []int
+	Arr          []int
 	P, Sum, Size int
 }
-
 
 /** Initialize your data structure here. */
 func Constructor(size int) MovingAverage {
 	return MovingAverage{make([]int, size), 0, 0, 0}
 }
-
 
 func (this *MovingAverage) Next(val int) float64 {
 	bigSize := len(this.Arr)
@@ -31,10 +29,9 @@ func (this *MovingAverage) Next(val int) float64 {
 		this.Arr[this.P] = val
 		this.P++
 	}
-	
+
 	return float64(this.Sum) / float64(this.Size)
 }
-
 
 /**
  * Your MovingAverage object will be instantiated and called as such:

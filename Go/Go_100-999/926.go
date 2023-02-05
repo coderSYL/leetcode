@@ -7,7 +7,7 @@ func minFlipsMonoIncr(s string) int {
 	for i := 0; i < n; i++ {
 		if s[i] == '0' {
 			r--
-			res = min(res, l + r)
+			res = min(res, l+r)
 		} else {
 			l++
 		}

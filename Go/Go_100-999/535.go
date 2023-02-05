@@ -1,22 +1,24 @@
+import "math/rand"
+
 // Go
 // leetcode 535
 // https://leetcode.cn/problems/encode-and-decode-tinyurl/
 
 type Codec struct {
-    long2Tiny map[string]string
-    tiny2Long map[string]string
-    str, prefix string
-    k, len int
+	long2Tiny   map[string]string
+	tiny2Long   map[string]string
+	str, prefix string
+	k, len      int
 }
 
 func Constructor() Codec {
-    return Codec{
-    	long2Tiny : map[string]string{},
-    	tiny2Long : map[string]string{},
-	    str : "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
-	    prefix : "wxy",
-	    k : 6,
-	    len : 62,
+	return Codec{
+		long2Tiny: map[string]string{},
+		tiny2Long: map[string]string{},
+		str:       "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+		prefix:    "wxy",
+		k:         6,
+		len:       62,
 	}
 }
 
@@ -41,9 +43,8 @@ func (this *Codec) encode(longUrl string) string {
 
 // Decodes a shortened URL to its original URL.
 func (this *Codec) decode(shortUrl string) string {
-    return this.tiny2Long[shortUrl]
+	return this.tiny2Long[shortUrl]
 }
-
 
 /**
  * Your Codec object will be instantiated and called as such:

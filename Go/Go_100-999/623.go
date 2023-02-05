@@ -25,17 +25,17 @@ func dfs(p *TreeNode, cur, val, depth int) {
 		return
 	}
 
-	if cur + 1 == depth {
+	if cur+1 == depth {
 		p.Left = &TreeNode{val, p.Left, nil}
 		p.Right = &TreeNode{val, nil, p.Right}
 		return
 	}
 
 	if p.Left != nil {
-		dfs(p.Left, cur + 1, val, depth)
+		dfs(p.Left, cur+1, val, depth)
 	}
 
 	if p.Right != nil {
-		dfs(p.Right, cur + 1, val, depth)
+		dfs(p.Right, cur+1, val, depth)
 	}
 }
