@@ -29,7 +29,7 @@ func (t *TrieNode) searchP(s string, p, cur int, changed bool) bool {
 	}
 	u := int(s[cur] - 'a')
 	for i := 0; i < 26; i++ {
-		if t.Trie[p][i] == 0 || (changed && i != u) {
+		if t.Trie[p][i] == 0 || (changed && i != u) { // 没机会选 i 的情况
 			continue
 		}
 		if t.searchP(s, t.Trie[p][i], cur+1, changed || i != u) {
