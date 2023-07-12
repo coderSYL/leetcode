@@ -9,6 +9,7 @@
  *     Next *ListNode
  * }
  */
+
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l1.Next == nil && l1.Val == 0 {
 		return l2
