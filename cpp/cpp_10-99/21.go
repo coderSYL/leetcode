@@ -20,7 +20,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) (res *ListNode) {
 	tail := res
 	for list1 != nil && list2 != nil {
 		if list1.Val < list2.Val {
-			if res == nil {
+			if res == nil { // 第一个节点
 				res = list1
 				tail = list1
 				list1 = list1.Next
@@ -34,7 +34,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) (res *ListNode) {
 			// tail.Next = nil
 			continue
 		}
-		if res == nil {
+		if res == nil { // // 第一个节点
 			res = list2
 			tail = list2
 			list2 = list2.Next

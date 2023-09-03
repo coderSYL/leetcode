@@ -1,8 +1,6 @@
 // C++
 // leetcode 1289
 // https://leetcode-cn.com/problems/minimum-falling-path-sum-ii/
-// 
-
 
 class Solution {
 public:

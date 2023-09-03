@@ -12,6 +12,13 @@ func min(a, b int) int {
 	return b
 }
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
 // 返回有序数组 arr 中，第一个大于等于 target 的元素的索引
 // 若所有元素均小于 target，返回 n = len(arr)
 func lower_bound(arr []int, target int) int {
