@@ -6,19 +6,19 @@ import (
 	"container/heap"
 )
 
-type IntHeap []int
+type BigHeap []int
 
-func (h IntHeap) Len() int { return len(h) }
+func (h BigHeap) Len() int { return len(h) }
 
 // 名为 Less，实为 Greater
-func (h IntHeap) Less(i, j int) bool { return h[i] > h[j] } // 小顶堆，返回值决定是否交换元素
-func (h IntHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h BigHeap) Less(i, j int) bool { return h[i] > h[j] } // 大顶堆，返回值决定是否交换元素
+func (h BigHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 
-func (h *IntHeap) Push(x interface{}) {
+func (h *BigHeap) Push(x interface{}) {
 	*h = append(*h, x.(int))
 }
 
-func (h *IntHeap) Pop() interface{} {
+func (h *BigHeap) Pop() interface{} {
 	old := *h
 	n := len(old)
 	x := old[n-1]
@@ -27,7 +27,7 @@ func (h *IntHeap) Pop() interface{} {
 }
 
 func minRefuelStops(target int, startFuel int, stations [][]int) int {
-	h, n := &IntHeap{}, len(stations)
+	h, n := &BigHeap{}, len(stations)
 	heap.Init(h)
 	for i := 0; i < n; i++ {
 		x := stations[i][0]

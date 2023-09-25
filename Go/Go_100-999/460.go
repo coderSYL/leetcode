@@ -48,9 +48,6 @@ func Constructor(capacity int) LFUCache {
 }
 
 func (this *LFUCache) Get(key int) int {
-	if this.cap == 0 {
-		return -1
-	}
 	node, ok := this.Nmap[key]
 	if !ok {
 		return -1
@@ -65,9 +62,6 @@ func (this *LFUCache) Get(key int) int {
 }
 
 func (this *LFUCache) Put(key int, value int) {
-	if this.cap == 0 {
-		return
-	}
 	node, ok := this.Nmap[key]
 	if ok {
 		node.frequence++

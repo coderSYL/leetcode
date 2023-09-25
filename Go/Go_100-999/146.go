@@ -8,8 +8,8 @@ type Node struct {
 }
 
 type LRUCache struct {
-	GetNode    map[int]*Node
-	Head, Tail *Node
+	GetNode    map[int]*Node // key - node
+	Head, Tail *Node         // 初始时有两个没有真实意义的站位节点
 	Size, Cap  int
 }
 
@@ -41,38 +41,34 @@ func Constructor(capacity int) LRUCache {
 
 func (this *LRUCache) Get(key int) int {
 	node, ok := this.GetNode[key]
-	if ok {
-		this.RemoveNode(node)
-		this.AddToHead(node)
-		// fmt.Println("Get OK",key,node.Val)
+	if ok { // 存在
+		this.RemoveNode(node) // 从链中去除
+		this.AddToHead(node)  // 放到链头处
 		return node.Val
 	}
-	// fmt.Println("Get --",key)
-	return -1
+
+	return -1 // 不存在
 }
 
 func (this *LRUCache) Put(key int, value int) {
 	node, exist := this.GetNode[key]
-	if exist {
+	if exist { // 已存在，需要改值，挪位置
 		node.Val = value
 		this.RemoveNode(node)
 		this.AddToHead(node)
-		// fmt.Println("Put CHANGE",key,node.Val)
 		return
 	}
 
-	if this.Size == this.Cap {
-		node = this.Tail.Left // 定位末尾的 Node
-		this.RemoveNode(node) // 从链中移除
-		// fmt.Println("Put FULL--",key, value, "PRE :", node.Key,node.Val)
+	if this.Size == this.Cap { // 满了
+		node = this.Tail.Left           // 定位末尾的 Node
+		this.RemoveNode(node)           // 从链中移除
 		delete(this.GetNode, node.Key)  // 解绑map
 		node.Key, node.Val = key, value // 改kv，复用
-	} else {
+	} else { // 未满
 		this.Size++
 		node = &Node{
 			key, value, nil, nil,
 		}
-		// fmt.Println("Put NEW---",key, value)
 	}
 
 	this.AddToHead(node)
