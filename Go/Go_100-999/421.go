@@ -3,7 +3,7 @@
 // https://leetcode.cn/problems/maximum-xor-of-two-numbers-in-an-array/
 
 func findMaximumXOR(nums []int) (res int) {
-	trie := [6500000][2]int{}
+	trie := [2750000][2]int{}
 	idx := 0
 	add := func(x int) {
 		p := 0
